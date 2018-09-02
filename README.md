@@ -26,7 +26,7 @@ First of all, you will need to install required packages:
         python-pip python-empy python-setuptools python-nose chrpath ffmpeg libudev-dev \
         libsfml-dev libconsole-bridge-dev
         
-### Installing catkin
+### Installing catkin,如果pip提示升级到18.0，请不要安装升级操作-nunulong1999-w1
 
     sudo pip install -U catkin_tools mock
     
@@ -56,14 +56,13 @@ You can then install the latest stable release of all the rhoban source code:
 Note: You should make a fork of rhoban/environments_public in order to have
 the configuration for your own robots.
 
-    ./workspace install rhoban/hl_kid_public.git
-    ./workspace install rhoban/environments_public.git
-    ./workspace install rhoban/monitoring_robocup.git
-    ./workspace git checkout final_2018
-    ln -sf src/rhoban/environments_public env
+    ./workspace install sycurobot/hl_kid_public.git
+    ./workspace install sycurobot/environments_public.git
+    ./workspace install sycurobot/monitoring_robocup.git
+    ln -sf src/sycurobot/sycu2/environments_public env
 
 Some symbolic links should be modified in env/fake.
-"default_robot" should be change with one of the robot folder name:
+"default_robot" should be change with one of the robot folder name:,这里，将default_robot改为sycu2
 
     ln -sf ../default_robot/kick_classic.json env/fake
     ln -sf ../default_robot/kick_small.json env/fake
@@ -71,7 +70,7 @@ Some symbolic links should be modified in env/fake.
     ln -sf ../default_robot/KickModelCollection.json env/fake
     ln -sf ../default_robot/VCM.json env/fake
     ln -sf ../default_robot/sigmaban.urdf env/fake
-    ln -sf ../../../rhoban/model/Data/font.ttf env/fake
+    ln -sf /home/sycurobot/workspace/src/rhoban/model/Data/font.ttf env/fake
 
     
 ### Installing FlyCapture dependency
@@ -90,9 +89,9 @@ Maybe there will be issues with apt packages, in this case, run:
 
     sudo apt --fix-broken install
     
-And try again (you might need to repeat the last step 2 or 3 times)
+And try again (you might need to repeat the last step 2 or 3 times，反复安装，直至无错误提示为止。
 
-### Installing RhIO Shell
+### Installing RhIO Shell，安装前退回文件夹：workspace/
 
 You can now compile the RhIO Shell:
 
